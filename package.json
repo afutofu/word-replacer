@@ -1,0 +1,14 @@
+{
+  "name": "word-replacer",
+  "version": "1.0.0",
+  "description": "App that replaces words from a text input",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Muhammad Afuzarahman & Denise Tanumihardja",
+  "license": "MIT",
+  "dependencies": {
+    "create-react-app": "^5.0.0"
+  }
+}
