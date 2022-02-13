@@ -1,0 +1,60 @@
+@import "./variables";
+
+#filter-list-title {
+  margin-bottom: 10px;
+}
+
+#filter-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+
+  .list-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+
+    input {
+      border: none;
+      border: 1px solid black;
+      font-size: 16px;
+      padding: 5px 8px;
+      box-sizing: border-box;
+
+      &:hover {
+        border: 1px solid $blue;
+      }
+
+      &:focus {
+        outline: none !important;
+        border: 1px solid $deepblue;
+      }
+    }
+
+    .first-input {
+      margin-right: 10px;
+    }
+
+    .second-input {
+      margin-left: 10px;
+    }
+
+    &:last-of-type {
+      margin-bottom: 15px;
+    }
+  }
+
+  #add-filter-list-item-icon {
+    color: $blue;
+    font-size: 18px;
+    transition: color 0.1s;
+    cursor: pointer;
+
+    &:hover {
+      color: $lightblue;
+    }
+  }
+}
