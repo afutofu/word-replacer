@@ -9,7 +9,7 @@ const FilterList = () => {
   const setFirstWordFilter = (firstWordFilterIndex, value) => {
     const newWordFilterList = wordFilterList.map((filter, i) => {
       if (i === firstWordFilterIndex) {
-        filter.replace = value;
+        filter.from = value;
       }
       return filter;
     });
@@ -19,7 +19,7 @@ const FilterList = () => {
   const setSecondWordFilter = (secondWordFilterIndex, value) => {
     const newWordFilterList = wordFilterList.map((filter, i) => {
       if (i === secondWordFilterIndex) {
-        filter.with = value;
+        filter.to = value;
       }
       return filter;
     });
@@ -50,11 +50,11 @@ const FilterList = () => {
       <ul id="filter-list">
         {wordFilterList.map((filter, i) => {
           return (
-            <li className="list-item">
+            <li key={i} className="list-item">
               <input
                 className="first-input"
                 onChange={(e) => setFirstWordFilter(i, e.target.value)}
-                value={filter.replace}
+                value={filter.from}
               />
               <div
                 className="icon-container"
@@ -73,7 +73,7 @@ const FilterList = () => {
               <input
                 className="second-input"
                 onChange={(e) => setSecondWordFilter(i, e.target.value)}
-                value={filter.with}
+                value={filter.to}
               />
             </li>
           );
@@ -82,7 +82,7 @@ const FilterList = () => {
           id="add-filter-list-item-icon"
           className="fa fa-plus"
           onClick={() =>
-            setWordFilterList([...wordFilterList, { replace: "", with: "" }])
+            setWordFilterList([...wordFilterList, { from: "", to: "" }])
           }
         ></i>
       </ul>

@@ -4,8 +4,8 @@ export const WordFilterContext = createContext();
 
 export const WordFilterProvider = (props) => {
   const [wordFilterList, setWordFilterList] = useState([
-    { replace: "", with: "" },
-    { replace: "", with: "" },
+    { from: "", to: "" },
+    { from: "", to: "" },
   ]);
 
   return (
