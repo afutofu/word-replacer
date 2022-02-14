@@ -1,5 +1,19 @@
-#filter-list-title {
+#filter-list-descriptions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-bottom: 10px;
+}
+
+#filter-list-descriptions p {
+  margin-bottom: 5px;
 }
 
 #filter-list {
@@ -30,6 +44,26 @@
   margin-bottom: 10px;
 }
 
+#filter-list .list-item .icon-container {
+  width: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 10px;
+}
+
+#filter-list .list-item .delete-icon {
+  font-size: 20px;
+  color: red;
+  cursor: pointer;
+}
+
 #filter-list .list-item input {
   border: none;
   border: 1px solid black;
@@ -46,14 +80,6 @@
 #filter-list .list-item input:focus {
   outline: none !important;
   border: 1px solid #00b3ff;
-}
-
-#filter-list .list-item .first-input {
-  margin-right: 10px;
-}
-
-#filter-list .list-item .second-input {
-  margin-left: 10px;
 }
 
 #filter-list .list-item:last-of-type {

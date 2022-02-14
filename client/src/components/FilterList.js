@@ -1,22 +1,80 @@
-import { useContext } from "react";
+import { useState, useContext } from "react";
 
 import { WordFilterContext } from "../contexts/WordFilterContext";
 
 const FilterList = () => {
   const [wordFilterList, setWordFilterList] = useContext(WordFilterContext);
+  const [hoverItem, setHoverItem] = useState(null);
+
+  const setFirstWordFilter = (firstWordFilterIndex, value) => {
+    const newWordFilterList = wordFilterList.map((filter, i) => {
+      if (i === firstWordFilterIndex) {
+        filter.replace = value;
+      }
+      return filter;
+    });
+    setWordFilterList(newWordFilterList);
+  };
+
+  const setSecondWordFilter = (secondWordFilterIndex, value) => {
+    const newWordFilterList = wordFilterList.map((filter, i) => {
+      if (i === secondWordFilterIndex) {
+        filter.with = value;
+      }
+      return filter;
+    });
+    setWordFilterList(newWordFilterList);
+  };
+
+  const deleteWordFilter = (deletedWordFilterIndex) => {
+    if (wordFilterList.length <= 1) {
+      return;
+    }
+
+    const newWordFilterList = [];
+
+    for (let i = 0; i < wordFilterList.length; i++) {
+      if (i !== deletedWordFilterIndex) {
+        newWordFilterList.push(wordFilterList[i]);
+      }
+    }
+    setWordFilterList(newWordFilterList);
+  };
 
   return (
     <>
-      <p id="filter-list-title">
-        Input words to be replaced and their replacement
-      </p>
+      <div id="filter-list-descriptions">
+        <p>Input words to be replaced and their replacement</p>
+        <p>Click on the arrow to delete a filter</p>
+      </div>
       <ul id="filter-list">
-        {wordFilterList.map((filter) => {
+        {wordFilterList.map((filter, i) => {
           return (
             <li className="list-item">
-              <input className="first-input"></input>
-              <i className="fa fa-arrow-right"></i>
-              <input className="second-input"></input>
+              <input
+                className="first-input"
+                onChange={(e) => setFirstWordFilter(i, e.target.value)}
+                value={filter.replace}
+              />
+              <div
+                className="icon-container"
+                onMouseEnter={() => setHoverItem(i)}
+                onMouseLeave={() => setHoverItem(null)}
+              >
+                {i === hoverItem ? (
+                  <i
+                    className="fas fa-times delete-icon"
+                    onClick={() => deleteWordFilter(i)}
+                  ></i>
+                ) : (
+                  <i className="fa fa-arrow-right"></i>
+                )}
+              </div>
+              <input
+                className="second-input"
+                onChange={(e) => setSecondWordFilter(i, e.target.value)}
+                value={filter.with}
+              />
             </li>
           );
         })}
