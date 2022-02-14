@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useContext } from "react";
+
+import { WordFilterContext } from "../contexts/WordFilterContext";
 
 const FilterList = () => {
-  const [list, setList] = useState([{}, {}, {}]);
+  const [wordFilterList, setWordFilterList] = useContext(WordFilterContext);
 
   return (
     <>
@@ -9,7 +11,7 @@ const FilterList = () => {
         Input words to be replaced and their replacement
       </p>
       <ul id="filter-list">
-        {list.map((filter) => {
+        {wordFilterList.map((filter) => {
           return (
             <li className="list-item">
               <input className="first-input"></input>
@@ -18,7 +20,13 @@ const FilterList = () => {
             </li>
           );
         })}
-        <i id="add-filter-list-item-icon" className="fa fa-plus"></i>
+        <i
+          id="add-filter-list-item-icon"
+          className="fa fa-plus"
+          onClick={() =>
+            setWordFilterList([...wordFilterList, { replace: "", with: "" }])
+          }
+        ></i>
       </ul>
     </>
   );
