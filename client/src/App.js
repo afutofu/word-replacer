@@ -19,8 +19,34 @@ const App = () => {
             <TextOutput />
           </section>
           <footer>
-            <p>Source code available on Github</p>
-            <p>Developed by Muhammad Afuzarahman and Denise Tanumihardja</p>
+            <p>
+              Source code available on{" "}
+              <a
+                href="https://github.com/afutofu/word-replacer"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Github
+              </a>
+            </p>
+            <p>
+              Developed by{" "}
+              <a
+                href="https://afutofu.github.io"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Muhammad Afuzarahman
+              </a>{" "}
+              and{" "}
+              <a
+                href="https://github.com/Detadja"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Denise Tanumihardja
+              </a>
+            </p>
           </footer>
         </div>
       </TextProvider>

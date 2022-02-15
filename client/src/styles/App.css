@@ -222,4 +222,16 @@ footer p {
   margin-bottom: 5px;
   color: #555;
 }
+
+footer a {
+  color: inherit;
+  font-weight: bold;
+  text-decoration: none;
+  -webkit-transition: color 0.1s;
+  transition: color 0.1s;
+}
+
+footer a:hover {
+  color: #31c1ff;
+}
 /*# sourceMappingURL=App.css.map */
