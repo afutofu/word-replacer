@@ -1,6 +1,7 @@
 # Word Replacer
 
-Web app that replaces words from a text input
+Web app that replaces words from a text input.
+Collaborators: Muhammad Afuzarahman & Denise Tanumihardja
 
 ## How to run
 
@@ -11,6 +12,4 @@ In root directory and client directory, run:
 
 To run the app locally, run:
 
-### `npm run dev`
-
-To change and compile styling through SASS, install "Live SASS compiler" extension on VSCode.
+### `npm start`
