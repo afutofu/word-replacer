@@ -10,35 +10,46 @@ const TextInput = () => {
   const [replacedText, setReplacedText] = useContext(TextContext).replacedText;
 
   const replaceWords = () => {
-    // Gets rid of extra whitespaces (more than one space) between words
-    let tempReplacedText = text.replace(/\s+/g, " ");
-    let textAsList = tempReplacedText.split(" ");
+    // Locate line breaks and separate string into paragraphs
+    let paragraphs = text.split("\n");
 
-    textAsList = textAsList.map((word) => {
-      let isFiltered = false;
-      let from = "";
-      let to = "";
-      wordFilter.forEach((filter) => {
-        const tempWord = word.replace(/\.|,|\?|!+$/, ""); // Remove trailing special-characters.
+    paragraphs = paragraphs.map((text) => {
+      let tempReplacedText = text.replace(/\s+/g, " "); // Gets rid of extra whitespaces (more than one space) between words
+      let textAsList = tempReplacedText.split(" "); // Split each word as a string in a list
 
-        if (tempWord === filter.from) {
-          isFiltered = true;
-          from = filter.from;
-          to = filter.to;
-          return;
+      // Start filtering each word in the list
+      textAsList = textAsList.map((word) => {
+        let isFiltered = false;
+        let from = "";
+        let to = "";
+
+        wordFilter.forEach((filter) => {
+          const tempWord = word.replace(/(\.|,|\?|!)+$/, ""); // Remove trailing special-characters.
+
+          // If the "cleaned" word is the filtered word, exit the loop and save the word and its replacement
+          if (tempWord === filter.from) {
+            isFiltered = true;
+            from = filter.from;
+            to = filter.to;
+            return;
+          }
+        });
+
+        // If the word is part of the filter, replace it
+        if (isFiltered) {
+          return word.replace(from, to);
         }
+
+        // Else keep the word as is
+        return word;
       });
 
-      if (isFiltered) {
-        return word.replace(from, to);
-      }
-
-      return word;
+      // Once each word in the list is filtered, join them into a string separated by a space
+      return textAsList.join(" ");
     });
 
-    tempReplacedText = textAsList.join(" ");
-
-    setReplacedText(tempReplacedText);
+    // Set replaced text as the joining of paragraph strings separated by new lines
+    setReplacedText(paragraphs.join("\n"));
   };
 
   return (
