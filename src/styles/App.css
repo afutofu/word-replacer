@@ -58,6 +58,10 @@
   margin: 0 10px;
 }
 
+#filter-list .list-item i {
+  color: white;
+}
+
 #filter-list .list-item .delete-icon {
   font-size: 20px;
   color: red;
@@ -162,7 +166,7 @@
   width: 100%;
   min-height: 100vh;
   height: 100%;
-  background-color: #eee;
+  background-color: #1b1b1b;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -178,6 +182,11 @@
           align-items: center;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+#app h1 {
+  color: white;
+  margin: 35px 0;
 }
 
 #app section {
@@ -202,6 +211,24 @@
   margin: 20px 0;
 }
 
+p {
+  color: white;
+}
+
+input {
+  background-color: #444;
+  color: white;
+}
+
+textarea {
+  background-color: #444;
+  color: white;
+}
+
+h3 {
+  color: white;
+}
+
 footer {
   width: 100%;
   display: -webkit-box;
@@ -220,7 +247,7 @@ footer {
 footer p {
   font-size: 16px;
   margin-bottom: 5px;
-  color: #555;
+  color: white;
 }
 
 footer a {

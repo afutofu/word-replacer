@@ -9,12 +9,17 @@
   width: 100%;
   min-height: 100vh;
   height: 100%;
-  background-color: #eee;
+  background-color: rgb(27, 27, 27);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
+
+  h1 {
+    color: $textColor;
+    margin: 35px 0;
+  }
 
   section {
     display: flex;
@@ -30,6 +35,24 @@
   margin: 20px 0;
 }
 
+p {
+  color: $textColor;
+}
+
+input {
+  background-color: $inputBg;
+  color: $textColor;
+}
+
+textarea {
+  background-color: $inputBg;
+  color: $textColor;
+}
+
+h3 {
+  color: $textColor;
+}
+
 footer {
   width: 100%;
   display: flex;
@@ -40,7 +63,7 @@ footer {
   p {
     font-size: 16px;
     margin-bottom: 5px;
-    color: #555;
+    color: $textColor;
   }
 
   a {
